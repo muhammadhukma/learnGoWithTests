@@ -58,15 +58,9 @@ func TestConfigurableSleeper(t *testing.T) {
 		t.Errorf("should have slept for %v but slept for %v", sleepTime, spyTime.durationSlept)
 	}
 	t.Run("latihan cobain sendiri heeh", func(t *testing.T) {
-		buffer := &bytes.Buffer{}
 		sleepTime := 5 * time.Second
-		spyTime := &SpyTime{}
-		sleeper := &ConfigurableSleeper{sleepTime, spyTime.SetDurationSlept}
-		Countdown(buffer, sleeper)
-
-		if spyTime.durationSlept != sleepTime {
-			t.Errorf("shoud have sleep for %v but sleep for %v", sleepTime, spyTime.durationSlept)
-		}
+		spyTime := &SpyTime
+		sleeper := Contdown
 	})
 }
 
