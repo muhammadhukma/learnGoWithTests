@@ -11,15 +11,14 @@ type Sleeper interface {
 	Sleep()
 }
 
-// default sleeper
-type DefaultSleep struct {
-}
+// DefaultSleep tai
+type DefaultSleep struct{}
 
 func (d *DefaultSleep) Sleep() {
 	time.Sleep(time.Second * 1)
 }
 
-// configurabel sleeper
+// ConfigurableSleeper 2025-09-06
 type ConfigurableSleeper struct {
 	duration time.Duration
 	sleep    func(time.Duration)
