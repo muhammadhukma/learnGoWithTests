@@ -61,6 +61,7 @@ func TestConfigurableSleeper(t *testing.T) {
 		buffer := &bytes.Buffer{}
 		sleepTime := 5 * time.Second
 		spyTime := &SpyTime{}
+		contol := "halo"
 		sleeper := &ConfigurableSleeper{sleepTime, spyTime.SetDurationSlept}
 		Countdown(buffer, sleeper)
 
