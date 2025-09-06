@@ -61,7 +61,6 @@ func TestConfigurableSleeper(t *testing.T) {
 		buffer := &bytes.Buffer{}
 		sleepTime := 5 * time.Second
 		spyTime := &SpyTime{}
-		contol := "halo"
 		sleeper := &ConfigurableSleeper{sleepTime, spyTime.SetDurationSlept}
 		Countdown(buffer, sleeper)
 
@@ -88,9 +87,10 @@ type SpyCountdownOperations struct {
 func (s *SpyCountdownOperations) Sleep() {
 	s.Calls = append(s.Calls, sleep)
 }
+
 func (s *SpyCountdownOperations) Write(p []byte) (n int, er error) {
 	s.Calls = append(s.Calls, write)
-	return
+	return n, er
 }
 
 // configurable sleeper
@@ -102,5 +102,7 @@ func (s *SpyTime) SetDurationSlept(duration time.Duration) {
 	s.durationSlept = duration
 }
 
-const sleep = "sleep"
-const write = "write"
+const (
+	sleep = "sleep"
+	write = "write"
+)
