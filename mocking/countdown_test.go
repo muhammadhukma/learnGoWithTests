@@ -87,6 +87,7 @@ type SpyCountdownOperations struct {
 func (s *SpyCountdownOperations) Sleep() {
 	s.Calls = append(s.Calls, sleep)
 }
+
 func (s *SpyCountdownOperations) Write(p []byte) (n int, er error) {
 	s.Calls = append(s.Calls, write)
 	return
@@ -101,5 +102,7 @@ func (s *SpyTime) SetDurationSlept(duration time.Duration) {
 	s.durationSlept = duration
 }
 
-const sleep = "sleep"
-const write = "write"
+const (
+	sleep = "sleep"
+	write = "write"
+)
