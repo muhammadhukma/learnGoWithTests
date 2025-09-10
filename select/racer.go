@@ -1,10 +1,12 @@
+// Package racer
 package racer
 
 import (
 	"fmt"
 	"net/http"
 	"time"
-)
+) // github.com/cowsay-org/cowsay
+// jangan menyerah karena kamu sudah melangkah terlalu jauh jika berhenti maka kamu akan sia sia
 
 const tenSecondTimeout = time.Second * 10
 

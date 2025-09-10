@@ -13,6 +13,7 @@ func TestWalk(t *testing.T) {
 	walk(x, func(input string) {
 		got = append(got, input)
 	})
+	// halo nama saya adalah hukma ulil
 
 	if len(got) != 1 {
 		t.Errorf("wrong number of function call, got %d want %d", len(got), 1)
